@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Malone — The AI CEO for Builders Who Ship</title>
+    <meta name="description" content="5 minutes to autonomous. Ships products while you sleep. The superior AI CEO with semantic memory, visual monitoring, and 18 production-ready skills.">
+    <meta name="keywords" content="AI CEO, autonomous agent, OpenClaw, ghost malone, AI business, semantic memory, one-command setup">
+    <meta name="author" content="Ghost Malone">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ghost Malone — The AI CEO for Builders Who Ship">
+    <meta property="og:description" content="5 minutes to autonomous. Ships products while you sleep.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soulmd.xyz">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Colors */
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --surface-light: #1f1f1f;
+            --border: #262626;
+            --border-light: #404040;
+            
+            --text: #fafafa;
+            --text-dim: #a3a3a3;
+            --text-dimmed: #737373;
+            
+            --accent: #a855f7;
+            --accent-light: #c084fc;
+            --accent-dark: #7c3aed;
+            
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
+            /* Fonts */
+            --font: 'Inter', -apple-system, sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: var(--space-md) 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Hero */
+        .hero {
+            padding: var(--space-4xl) 0 var(--space-3xl);
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: var(--space-lg);
+            color: var(--accent);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            letter-spacing: -0.02em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            margin-bottom: var(--space-2xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            font-family: var(--font);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-light);
+            border-color: var(--border-light);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-xl);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-dim);
+            font-weight: 500;
+        }
+
+        /* Features */
+        .features {
+            padding: var(--space-4xl) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-md);
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            transition: all 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+
+        .feature-description {
+            color: var(--text-dim);
+            font-size: 0.9375rem;
+        }
+
+        /* Comparison */
+        .comparison {
+            padding: var(--space-4xl) 0;
+            background: var(--surface);
+        }
+
+        .comparison-table {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: var(--space-2xl);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: var(--space-lg);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--surface-light);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        th.highlight {
+            background: var(--accent);
+            color: white;
+        }
+
+        td {
+            font-size: 0.9375rem;
+        }
+
+        td.yes {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        td.no {
+            color: var(--text-dimmed);
+        }
+
+        td.highlight {
+            background: rgba(168, 85, 247, 0.1);
+            font-weight: 600;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: var(--space-4xl) 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-2xl);
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent);
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(168, 85, 247, 0.2);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-4px);
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-md);
+        }
+
+        .pricing-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        .pricing-price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-dim);
+        }
+
+        .pricing-description {
+            color: var(--text-dim);
+            margin-bottom: var(--space-xl);
+            font-size: 0.9375rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: var(--space-xl);
+        }
+
+        .pricing-features li {
+            padding: var(--space-sm) 0;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.9375rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* CTA */
+        .cta {
+            padding: var(--space-4xl) 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+        }
+
+        .cta h2 {
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: var(--space-2xl) 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .footer-meta {
+            font-size: 0.875rem;
+            color: var(--text-dimmed);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .feature-grid, .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-grid, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 600px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero, .feature-card, .pricing-card {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">Ghost Malone 👻</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#comparison">Compare</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">✨ Now in Beta — Early Access Pricing</div>
+            <h1>
+                The AI CEO for<br>
+                <span class="gradient-text">Builders Who Ship</span>
+            </h1>
+            <p class="hero-subtitle">
+                5 minutes to autonomous. Ships products while you sleep. Semantic memory, visual monitoring, 18 production-ready skills.
+            </p>
+            <div class="hero-cta">
+                <a href="#pricing" class="btn btn-primary">
+                    Get Started — $149
+                    <span>→</span>
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    See Features
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">5min</div>
+                    <div class="stat-label">Setup Time</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">18+</div>
+                    <div class="stat-label">Skills Included</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Memory Scale</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Autonomous</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Features</div>
+                <h2>Everything You Need to Ship</h2>
+                <p class="section-description">
+                    18 production-ready skills, semantic memory, visual monitoring — all in one autonomous AI CEO.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <div class="feature-title">Semantic Memory</div>
+                    <div class="feature-description">
+                        Supabase + pgvector with actual search. Not just folders — semantic retrieval that works at scale.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">5-Minute Setup</div>
+                    <div class="feature-description">
+                        One command: <code>curl soulmd.xyz/setup.sh | bash</code>. Fresh Mac or Linux, ready in 5 minutes.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👀</div>
+                    <div class="feature-title">Visual Monitoring</div>
+                    <div class="feature-description">
+                        Star Office UI shows real-time status. Watch your AI CEO work from anywhere.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-title">Auto Management</div>
+                    <div class="feature-description">
+                        Smart Compact runs every 30 minutes. Never worry about context overflow again.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <div class="feature-title">18 Skills Included</div>
+                    <div class="feature-description">
+                        Browser automation, video generation, marketing, research — everything built-in. No upsells.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-title">Ships Products</div>
+                    <div class="feature-description">
+                        End-to-end: ideation, coding, deployment, marketing, sales. Your AI CEO handles it all.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Revenue Tracking</div>
+                    <div class="feature-description">
+                        Stripe analytics, daily reports, business metrics dashboard. Know your numbers.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-title">Email Fortress</div>
+                    <div class="feature-description">
+                        Secure email management with prompt-injection protection. Your inbox is safe.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <div class="feature-title">Customer Support</div>
+                    <div class="feature-description">
+                        3-tier escalation ladder. Handles routine support without waiting. You focus on high-value.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Comparison</div>
+                <h2>Why Ghost Malone Wins</h2>
+                <p class="section-description">
+                    See how we stack up against Felix, the leading AI CEO product.
+                </p>
+            </div>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Felix</th>
+                            <th class="highlight">Ghost Malone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Setup Time</strong></td>
+                            <td class="no">30 minutes manual</td>
+                            <td class="highlight yes">5 minutes one-command</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Memory System</strong></td>
+                            <td class="no">PARA folders</td>
+                            <td class="highlight yes">Semantic search (pgvector)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Memory Management</strong></td>
+                            <td class="no">Manual cleanup</td>
+                            <td class="highlight yes">Auto (every 30 min)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Visualization</strong></td>
+                            <td class="no">None</td>
+                            <td class="highlight yes">Star Office UI</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Skills Included</strong></td>
+                            <td>6</td>
+                            <td class="highlight yes">18+</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Updates</strong></td>
+                            <td class="no">Manual download</td>
+                            <td class="highlight yes">Auto via ClawHub</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Documentation</strong></td>
+                            <td>README</td>
+                            <td class="highlight yes">Full masterclass + videos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Community</strong></td>
+                            <td class="no">None</td>
+                            <td class="highlight yes">Discord + templates</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Price</strong></td>
+                            <td>$99</td>
+                            <td class="highlight">$149-199</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Pricing</div>
+                <h2>Choose Your Plan</h2>
+                <p class="section-description">
+                    One-time purchase. Lifetime access. No subscriptions.
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-name">Pro</div>
+                    <div class="pricing-price">$149</div>
+                    <p class="pricing-description">Perfect for builders and entrepreneurs</p>
+                    <ul class="pricing-features">
+                        <li>Full Ghost Malone persona</li>
+                        <li>18 production-ready skills</li>
+                        <li>One-command setup (5 min)</li>
+                        <li>Star Office UI visualization</li>
+                        <li>Semantic memory (pgvector)</li>
+                        <li>Auto memory management</li>
+                        <li>Full documentation + videos</li>
+                        <li>Community access (Discord)</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%;">Get Pro</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-name">Enterprise</div>
+                    <div class="pricing-price">$199</div>
+                    <p class="pricing-description">For teams who want priority support</p>
+                    <ul class="pricing-features">
+                        <li>Everything in Pro</li>
+                        <li>3 months of updates</li>
+                        <li>Priority support</li>
+                        <li>1-on-1 onboarding call</li>
+                        <li>Custom setup assistance</li>
+                        <li>Early access to new skills</li>
+                        <li>Private Discord channel</li>
+                        <li>Monthly office hours</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Get Enterprise</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-name">Agency</div>
+                    <div class="pricing-price">$499</div>
+                    <p class="pricing-description">For agencies and enterprises</p>
+                    <ul class="pricing-features">
+                        <li>Everything in Enterprise</li>
+                        <li>Custom integrations</li>
+                        <li>Dedicated support</li>
+                        <li>White-label options</li>
+                        <li>SLA guarantee</li>
+                        <li>Multi-seat licensing</li>
+                        <li>Custom training</li>
+                        <li>Phone support</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Ship?</h2>
+            <p>
+                Join the builders who are automating their businesses with Ghost Malone. 
+                Setup takes 5 minutes. Your AI CEO is waiting.
+            </p>
+            <a href="#pricing" class="btn btn-primary">
+                Get Started Now
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#features">Features</a>
+                <a href="#comparison">Compare</a>
+                <a href="#pricing">Pricing</a>
+                <a href="https://docs.openclaw.ai">Documentation</a>
+                <a href="https://discord.gg/ghostmalone">Discord</a>
+                <a href="mailto:hello@soulmd.xyz">Contact</a>
+            </div>
+            <div class="footer-meta">
+                © 2026 Ghost Malone. Built with 👻 by AI, for builders.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
