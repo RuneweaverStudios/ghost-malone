@@ -120,6 +120,49 @@
             color: var(--text);
         }
 
+        /* Skills Dropdown */
+        .nav-item-dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: var(--space-sm);
+            min-width: 200px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .nav-item-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: var(--space-sm) var(--space-md);
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--surface-light);
+            color: var(--text);
+        }
+
+        .dropdown-menu a.active {
+            color: var(--accent);
+            background: rgba(168, 85, 247, 0.1);
+        }
+
         /* Hero */
         .hero {
             padding: var(--space-4xl) 0 var(--space-3xl);
@@ -567,6 +610,18 @@
             <a href="/" class="logo">Ghost Malone 👻</a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
+                <li class="nav-item-dropdown">
+                    <a href="#skills">Skills ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="#brain-setup">Brain Setup</a>
+                        <a href="#friday">Friday</a>
+                        <a href="#charlie">Charlie (Marketing)</a>
+                        <a href="#playwright-pro">Playwright Pro</a>
+                        <a href="#remotion-studio">Remotion Studio</a>
+                        <a href="#visual-studio">Visual Studio</a>
+                        <a href="#ship-it">Ship It</a>
+                    </div>
+                </li>
                 <li><a href="#comparison">Compare</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#faq">FAQ</a></li>
@@ -698,6 +753,57 @@
                         3-tier escalation ladder. Handles routine support without waiting. You focus on high-value.
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Detail Sections -->
+    <section class="skills-detail" id="brain-setup">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Skills</div>
+                <h2>🧠 Brain Setup — Semantic Memory</h2>
+                <p class="section-description">
+                    Supabase + pgvector with actual search. Not just folders — semantic retrieval that works at scale.
+                </p>
+            </div>
+            <div class="feature-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="feature-card">
+                    <div class="feature-title">Semantic Search</div>
+                    <div class="feature-description">
+                        Query your memory naturally. Find decisions, learnings, and context instantly with vector embeddings.
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">Supabase + pgvector</div>
+                    <div class="feature-description">
+                        Production-grade database with automatic embedding generation. Scales infinitely.
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">Memory Decay</div>
+                    <div class="feature-description">
+                        Old memories fade naturally. Important ones stay fresh. Automatic prioritization.
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">One-Command Setup</div>
+                    <div class="feature-description">
+                        <code>curl soulmd.xyz/setup.sh | bash</code> handles everything. Database, tables, indexes, all automated.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-detail" id="friday" style="background: var(--surface);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Skills</div>
+                <h2>📅 Friday — [Coming Soon]</h2>
+                <p class="section-description">
+                    Details coming soon. Stay tuned!
+                </p>
             </div>
         </div>
     </section>
